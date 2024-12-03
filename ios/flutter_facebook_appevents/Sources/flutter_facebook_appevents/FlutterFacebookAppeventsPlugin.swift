@@ -1,6 +1,7 @@
 import Flutter
 import UIKit
 import FBSDKCoreKit
+// import FBAdSettings
 
 enum Action: String {
     case resetUserId = "reset_user_id"
@@ -74,10 +75,8 @@ public class FlutterFacebookAppeventsPlugin: NSObject, FlutterPlugin {
     }
     private func handleSetAdvertiserTracking(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         let arguments = call.arguments as? [String: Any] ?? [String: Any]()
-        let enabled = arguments["enabled"] as! Bool
-        // let collectId = arguments["collectId"] as! Bool
-        FBAdSettings.setAdvertiserTrackingEnabled(enabled)
-        Settings.shared.isAdvertiserTrackingEnabled = enabled
+        // FBAdSettings.setAdvertiserTrackingEnabled(true)
+        Settings.shared.isAdvertiserTrackingEnabled = true
         Settings.shared.isAdvertiserIDCollectionEnabled = true
         result(nil)
     }
